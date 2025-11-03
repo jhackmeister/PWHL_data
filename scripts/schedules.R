@@ -14,7 +14,7 @@ data_list <- fromJSON(data_json, flatten = TRUE)
 # Check structure
 str(data_list, max.level = 2)
 
-# Extract seasons
+# Extract schedule
 schedule <- as.data.frame(data_list$SiteKit$Schedule)
 
 # Clean column names
