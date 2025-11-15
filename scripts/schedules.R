@@ -1,7 +1,9 @@
 library(httr)
 library(jsonlite)
-library(dplyr)
+library(tidyverse)
 library(janitor)
+library(ggrepel)
+
 
 # data scrapping via https://github.com/IsabelleLefebvre97/PWHL-Data-Reference?tab=readme-ov-file#hockeytech-base-url
 # schedule 

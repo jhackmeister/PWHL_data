@@ -10,7 +10,7 @@ data_list <- fromJSON(data_json, flatten = TRUE)
 str(data_list, max.level = 2)
 
 # Extract
-df <- as.data.frame(data_list$SiteKit$Statviewtype)
+skaters <- data_list$SiteKit$Statviewtype
 
 team_data_ty <- df %>% 
   janitor::clean_names() %>% 

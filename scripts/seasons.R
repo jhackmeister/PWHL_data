@@ -1,4 +1,9 @@
-# pull season informaion
+library(httr)
+library(jsonlite)
+library(dplyr)
+library(janitor)
+
+# pull season information
 url <- "https://lscluster.hockeytech.com/feed/index.php?feed=modulekit&view=seasons&key=446521baf8c38984&client_code=pwhl"
 response <- GET(url)
 data_json <- content(response, "text")
