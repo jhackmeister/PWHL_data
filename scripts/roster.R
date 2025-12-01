@@ -17,5 +17,5 @@ roster_list_clean <- lapply(roster_list, function(x) {
   return(x)
 })
 
-roster_df_simple <- bind_rows(roster_list_clean)
+torrent_roster <- bind_rows(roster_list_clean)
 

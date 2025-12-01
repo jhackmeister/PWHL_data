@@ -2,6 +2,7 @@ library(httr)
 library(jsonlite)
 library(stringr)
 library(tidyverse)
+library(ggrepel)
 
 # Season 5 
 url <- "https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=players&season=5&team=all&position=skaters&rookies=0&statsType=standard&rosterstatus=undefined&site_id=0&league_id=1&lang=en&division=-1&conference=-1&key=446521baf8c38984&client_code=pwhl&league_id=1&limit=500&sort=points"
