@@ -13,7 +13,6 @@ str(data_list, max.level = 2)
 skaters <- data_list$SiteKit$Statviewtype
 
 team_data_ty <- df %>% 
-  janitor::clean_names() %>% 
   filter(!name == "PWHL") %>% 
   select(-repeatheader, -placeholder, -division_id,
          -team_name, -teamname, -division_name)

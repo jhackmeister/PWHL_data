@@ -103,7 +103,11 @@ calculate_cumulative_standings <- function(schedule_w_points) {
   return(all_results)
 }
 
-ytd_schedule <- calculate_cumulative_standings(schedule_w_points)
+ytd_schedule <- calculate_cumulative_standings(schedule_w_points) %>% 
+  mutate(
+    cumulative_points = as.integer(cumulative_points),
+    game_id = as.integer(game_id)
+  )
 
 team_colors <- c(
   "BOS" = "#183F35",
@@ -127,16 +131,22 @@ ggplot(ytd_schedule, aes(x=game_number, y = cumulative_points,
   geom_line(linewidth = 1.3)+
   geom_text_repel(data = label_data,
             aes(label = team),
-            nudge_x = 0.2,
+            nudge_x = 0.1,
             hjust = 0,
-            segment.size = 0.2,
+            segment.size = 0.1,
             segment.alpha = 0.5,
             size = 4) +
   scale_color_manual(values = team_colors, name = "team", guide = "none") +
-  scale_x_continuous(breaks = seq(0, max(ytd_schedule$game_number), by = 1)) +
+  #scale_x_continuous(breaks = seq(0, max(ytd_schedule$game_number), by = 1)) +
+  #scale_y_continuous(breaks = seq(0, max(ytd_schedule$cumulative_points), by = 1)) +
   labs(
-    title = "2025-26 PWHL Standings",
+    title = paste0("2025-26 PWHL Standings as of ", format(Sys.Date(), "%m-%d-%y")),
+    subtitle = paste0(n_distinct(ytd_schedule$game_id), " League Games Played"),
     x = "Games Played",
     y = "Cumulative Points"
   ) +
   theme_minimal()
+
+n_distinct(ytd_schedule$game_id)
+
+

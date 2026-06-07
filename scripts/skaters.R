@@ -5,7 +5,7 @@ library(tidyverse)
 library(ggrepel)
 
 # Season 5 
-url <- "https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=players&season=5&team=all&position=skaters&rookies=0&statsType=standard&rosterstatus=undefined&site_id=0&league_id=1&lang=en&division=-1&conference=-1&key=446521baf8c38984&client_code=pwhl&league_id=1&limit=500&sort=points"
+url <- "https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=players&season=8&team=all&position=skaters&rookies=0&statsType=standard&rosterstatus=undefined&site_id=0&league_id=1&lang=en&division=-1&conference=-1&key=446521baf8c38984&client_code=pwhl&league_id=1&limit=500&sort=points"
 
 # Make the GET request
 response <- GET(url)
@@ -109,3 +109,6 @@ ggplot(feeder_teams, aes(x = reorder(team_code, desc(count)), y = count, fill = 
   ) +
   theme_minimal() +
   theme(legend.position = "none")
+
+torrent <- players_df |> 
+  filter(team_code == 'SEA')

@@ -4,7 +4,7 @@ library(dplyr)
 library(purrr)
 
 # Roster API URL - Set season and team names
-url <- "https://lscluster.hockeytech.com/feed/index.php?feed=modulekit&view=roster&team_id=8&season_id=7&key=446521baf8c38984&client_code=pwhl"
+url <- "https://lscluster.hockeytech.com/feed/index.php?feed=modulekit&view=roster&team_id=8&season_id=107&key=446521baf8c38984&client_code=pwhl"
 response <- GET(url)
 data_json <- content(response, "text")
 data_list <- fromJSON(data_json, flatten = TRUE)
